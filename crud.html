@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="crudstyle.css">
+
+</head>
+<body>
+    <h1 align="center">Crud Operations</h1>
+    <script src="crudscript.js"></script>
+    <table border="1">
+        <tr>
+            <td>Task Id</td>
+            <td>
+                <input type="text" name="" id="txtid">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Add Task</td>
+            <td>
+                <input type="text" name="" id="txtname">
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">
+                <button onclick="addData()">save</button>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+
+    <input type="hidden" name="" id="addindex">
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Id</th>
+                <th>Task</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="list">
+
+        </tbody>
+            
+    </table>
+
+</body>
+</html>
