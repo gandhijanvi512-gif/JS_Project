@@ -1,0 +1,59 @@
+body{
+    font-family: Arial;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+/* Input box size */
+input{
+    width: 200px;
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+/* Table styling */
+table{
+    margin: auto;
+    background: white;
+    border-collapse: collapse;
+}
+
+/* table border */
+table, th, td{
+    border: 1px solid #333;
+    padding: 10px;
+}
+
+/* Buttons styling */
+button{
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Save button */
+button:nth-child(1){
+    background: green;
+    color: white;
+}
+
+/* Update button */
+button:nth-child(2){
+    background: orange;
+    color: white;
+}
+
+/* Delete button */
+button:nth-child(3){
+    background: red;
+    color: white;
+}
+
+
+
+
