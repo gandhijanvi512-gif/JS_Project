@@ -1,0 +1,117 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Stopwatch Application</h1>
+    
+    <div id="display">00:00:00</div>
+    
+    <div>
+        <button onclick="startwatch()">Start</button>
+        <button onclick="Stopwatch()">Stop</button>
+        <button onclick="Resume()">Resume</button>
+        <button onclick="Reset()">Reset</button>
+        <button onclick="lap()">Lap</button>
+    </div>
+
+    <div id="laps"></div>
+
+    <script>
+        let hours=0;
+        let minute=0;
+        let second=0;
+        let lapcounter=0;
+
+        let timer=null;
+        let isRun=false;
+
+        function Displaytime(){
+            let h=String(hours).padStart(2,'0');
+            let m=String(minute).padStart(2,'0');
+            let s=String(second).padStart(2,'0')
+
+            document.getElementById("display").innerHTML=
+            `${h}:${m}:${s}`
+        }
+
+        function updatetime(){
+            second++;
+
+            if(second==60){
+                second=0;
+                minute++;
+            }
+
+            if(minute==60){
+                minute=0;
+                hours++;
+            }
+            Displaytime()
+        }
+
+        function startwatch(){
+            if(isRun){
+                return;
+            }
+            isRun=true;
+            timer=setInterval(updatetime,1000)
+        }
+
+        function Stopwatch(){
+            
+            clearInterval(timer)
+            isRun=false;
+        }
+
+        function Resume(){
+            if(isRun){
+                return
+            }
+            isRun=true;
+            timer=setInterval(updatetime,1000)
+        }
+
+        function Reset(){
+            clearInterval(timer);
+
+            hours=0;
+            minute=0;
+            second=0;
+
+            isRun=false;
+            Displaytime();
+
+        //clear lap
+        document.getElementById("laps").innerHTML=""
+            lapcounter=0;
+        }
+
+        function lap(){
+            if(!isRun){
+                return;
+            }
+            lapcounter++;
+
+            let h=String(hours).padStart(2,'0');
+            let m=String(minute).padStart(2,'0');
+            let s=String(second).padStart(2,'0');
+
+            let laptime=`${h}:${m}:${s}`;
+
+            let div=document.createElement('div');
+            div.innerText=`Laps ${lapcounter}:${laptime}`
+            let savelap=document.querySelector("#laps")
+            savelap.appendChild(div)
+        }
+
+        
+        
+    </script>
+</body>
+</html> 
+
+
